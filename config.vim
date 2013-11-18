@@ -84,8 +84,7 @@ set list listchars=tab:»_,trail:·,precedes:<,extends:>
 
 
 " hightlight overlength
-" highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-" match OverLength /\%81v.\+/
+set colorcolumn=81
 
 "user interface stuff
 
