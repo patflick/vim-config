@@ -69,7 +69,8 @@ Bundle 'rking/ag.vim'
 
 " MiniBufExplorer: the proper method to handle "tabs", because vim tabs
 "                  are not really tabs at all
-Bundle 'fholgado/minibufexpl.vim'
+"  MiniBufExplorer is not needed with the vim-airline tabline extension
+" Bundle 'fholgado/minibufexpl.vim'
 " configure MinBufExplorer:
 " fast buffer switching
 nnoremap  <C-l> :bn<CR>
@@ -87,12 +88,16 @@ nnoremap  <leader>9 :9b<CR>
 nnoremap  <leader>0 :10b<CR>
 
 
+" powerline like bar (vim-airline)
+Bundle 'bling/vim-airline'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+
 " Markdown syntax and ftype detection
 Bundle 'tpope/vim-markdown'
 
 " git wrapper
 Bundle 'tpope/vim-fugitive'
-
 
 " VIM Latex Suite
 Bundle 'jcf/vim-latex'
