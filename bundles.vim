@@ -112,7 +112,7 @@ Bundle 'tpope/vim-markdown'
 " git wrapper
 Bundle 'tpope/vim-fugitive'
 " git (and other VCS supported) gutter
-Bundle 'mhinz/vim-signify'
+" Bundle 'mhinz/vim-signify'
 
 " VIM Latex Suite
 Bundle 'jcf/vim-latex'
