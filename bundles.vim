@@ -24,6 +24,17 @@ Bundle 'scrooloose/nerdtree'
 " add a shortcut to toggle the NERDtree
 nnoremap <silent> <leader>n :NERDTreeToggle<CR>
 
+" use tagbar instead of taglist
+Bundle 'majutsushi/tagbar'
+nnoremap <silent> <leader>t :TagbarToggle<CR>
+
+" Unite - for fast file/buffer searching & switching
+Bundle 'Shougo/unite.vim'
+nnoremap <silent> <leader>f :Unite file<CR>
+" TODO maybe add vimproc here for async recursive search
+nnoremap <silent> <leader>r :Unite file_rec<CR>
+nnoremap <silent> <leader>b :Unite buffer<CR>
+
 
 " checks syntax
 Bundle 'scrooloose/syntastic'
@@ -39,6 +50,8 @@ Bundle 'Valloric/YouCompleteMe'
 let g:ycm_add_preview_to_completeopt=0
 let g:ycm_confirm_extra_conf=0
 set completeopt-=preview
+" use the YCM default clang flags config in case none is set
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
 " function for checking if the current file is supported
 function! Ycm_supports_file()
     let cur_ft = &filetype
@@ -93,11 +106,13 @@ Bundle 'bling/vim-airline'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
-" Markdown syntax and ftype detection
+" syntax
 Bundle 'tpope/vim-markdown'
 
 " git wrapper
 Bundle 'tpope/vim-fugitive'
+" git (and other VCS supported) gutter
+Bundle 'mhinz/vim-signify'
 
 " VIM Latex Suite
 Bundle 'jcf/vim-latex'

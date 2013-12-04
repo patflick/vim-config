@@ -83,9 +83,9 @@ set number
 set list listchars=tab:»_,trail:·,precedes:<,extends:>
 
 
+
 " hightlight overlength
-" highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-" match OverLength /\%81v.\+/
+set colorcolumn=81
 
 "user interface stuff
 
@@ -120,13 +120,13 @@ set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Cursor:
 nmap <leader>w :w!<cr>
 
 " close buffer without closing the current window
-nmap <leader>b :bp<bar>sp<bar>bn<bar>bd<CR>
+nmap <leader>c :bp<bar>sp<bar>bn<bar>bd<CR>
 
 " <leader> + C and <leader> + V for copy paste to clipboard in gvim
-:imap <leader>v <C-[>"+gPa
-:nmap <leader>v "+gPa
-:vmap <leader>c "+y
-:vmap <leader>x "+d
+" :imap <leader>v <C-[>"+gPa
+" :nmap <leader>v "+gPa
+" :vmap <leader>c "+y
+" :vmap <leader>x "+d
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
