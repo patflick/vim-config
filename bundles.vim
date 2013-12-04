@@ -24,6 +24,17 @@ Bundle 'scrooloose/nerdtree'
 " add a shortcut to toggle the NERDtree
 nnoremap <silent> <leader>n :NERDTreeToggle<CR>
 
+" use tagbar instead of taglist
+Bundle 'majutsushi/tagbar'
+nnoremap <silent> <leader>t :TagbarToggle<CR>
+
+" Unite - for fast file/buffer searching & switching
+Bundle 'Shougo/unite.vim'
+nnoremap <silent> <leader>f :Unite file<CR>
+" TODO maybe add vimproc here for async recursive search
+nnoremap <silent> <leader>r :Unite file_rec<CR>
+nnoremap <silent> <leader>b :Unite buffer<CR>
+
 
 " checks syntax
 Bundle 'scrooloose/syntastic'
@@ -39,6 +50,8 @@ Bundle 'Valloric/YouCompleteMe'
 let g:ycm_add_preview_to_completeopt=0
 let g:ycm_confirm_extra_conf=0
 set completeopt-=preview
+" use the YCM default clang flags config in case none is set
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
 " function for checking if the current file is supported
 function! Ycm_supports_file()
     let cur_ft = &filetype
@@ -69,7 +82,8 @@ Bundle 'rking/ag.vim'
 
 " MiniBufExplorer: the proper method to handle "tabs", because vim tabs
 "                  are not really tabs at all
-Bundle 'fholgado/minibufexpl.vim'
+"  MiniBufExplorer is not needed with the vim-airline tabline extension
+" Bundle 'fholgado/minibufexpl.vim'
 " configure MinBufExplorer:
 " fast buffer switching
 nnoremap  <C-l> :bn<CR>
@@ -87,12 +101,18 @@ nnoremap  <leader>9 :9b<CR>
 nnoremap  <leader>0 :10b<CR>
 
 
-" Markdown syntax and ftype detection
+" powerline like bar (vim-airline)
+Bundle 'bling/vim-airline'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+
+" syntax
 Bundle 'tpope/vim-markdown'
 
 " git wrapper
 Bundle 'tpope/vim-fugitive'
-
+" git (and other VCS supported) gutter
+" Bundle 'mhinz/vim-signify'
 
 " VIM Latex Suite
 Bundle 'jcf/vim-latex'
