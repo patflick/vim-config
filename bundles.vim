@@ -8,7 +8,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " let Vundle manage Vundle
-" required! 
+" required!
 Bundle 'gmarik/vundle'
 
 
@@ -24,9 +24,11 @@ Bundle 'scrooloose/nerdtree'
 " add a shortcut to toggle the NERDtree
 nnoremap <silent> <leader>n :NERDTreeToggle<CR>
 
+
 " use tagbar instead of taglist
 Bundle 'majutsushi/tagbar'
 nnoremap <silent> <leader>t :TagbarToggle<CR>
+
 
 " Unite - for fast file/buffer searching & switching
 Bundle 'Shougo/unite.vim'
@@ -34,6 +36,16 @@ nnoremap <silent> <leader>f :Unite file<CR>
 " TODO maybe add vimproc here for async recursive search
 nnoremap <silent> <leader>r :Unite file_rec<CR>
 nnoremap <silent> <leader>b :Unite buffer<CR>
+
+
+" Undo Tree visualization
+Bundle 'sjl/gundo.vim'
+nnoremap <silent> <leader>u :GundoToggle<CR>
+" configure gundo:
+let g:gundo_width = 30
+let g:gundo_preview_height = 10
+let g:gundo_right = 1
+let g:gundo_preview_bottom = 1
 
 
 " checks syntax
