@@ -70,8 +70,8 @@ set incsearch
 set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
 
-" avoiding 'press enter to continue'
-set cmdheight=2
+" sets height of command line at the bottom
+set cmdheight=1
 
 " scroll when 3 lines from border (instead of when exactly at the border)
 set scrolloff=3
