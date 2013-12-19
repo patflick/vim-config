@@ -60,8 +60,8 @@ let g:syntastic_python_checkers=['python', 'pep8']
 Bundle 'Valloric/YouCompleteMe'
 " Configure YouCompleteMe.
 let g:ycm_add_preview_to_completeopt=0
-let g:ycm_confirm_extra_conf=0
-set completeopt-=preview
+" let g:ycm_confirm_extra_conf=0
+" set completeopt-=preview
 " use the YCM default clang flags config in case none is set
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
 " function for checking if the current file is supported
