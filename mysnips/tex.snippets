@@ -1,0 +1,13 @@
+
+#######################################################################
+#                          my LaTeX snippets                          #
+#######################################################################
+
+snippet fig "\begin{figure} ..." b
+\begin{figure}
+    \centering
+    \includegraphics{$1}
+    \caption[$2]{$3}
+    \label{$0}
+\end{figure}
+endsnippet

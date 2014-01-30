@@ -129,7 +129,16 @@ Bundle 'tpope/vim-fugitive'
 " VIM Latex Suite
 Bundle 'jcf/vim-latex'
 
+" VIM snippets
+Bundle 'SirVer/ultisnips'
+" can't use <TAB> because of YCM:
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+" load custom snippets
+let g:UltiSnipsSnippetDirectories=["UltiSnips","mysnips"]
 
+Bundle 'vim-scripts/DoxygenToolkit.vim'
 
 " ---------------------
 "  Color Schemes

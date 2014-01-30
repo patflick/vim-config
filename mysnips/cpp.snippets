@@ -1,0 +1,19 @@
+snippet doxfile "/** file doxygen */"
+/**
+ * @file    ${1:filename}
+ * @ingroup ${2:group}
+ * @author  Patrick Flick <patrick.flick@gmail.com>
+ * @brief   ${3:descr}
+ *
+ * Copyright (c) TODO
+ *
+ * TODO add Licence
+ */
+endsnippet
+
+snippet guard "include guard"
+#ifndef ${1/([A-Za-z0-9_]+).*/$1/}
+#define ${1:SYMBOL}
+
+#endif // ${1/([A-Za-z0-9_]+).*/$1/}
+endsnippet
