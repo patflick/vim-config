@@ -17,7 +17,7 @@ set encoding=utf-8
 set nocompatible
 
 " Enable better indentation.
-set autoindent 
+set autoindent
 " don't use smartindent (it destroys stuff???)
 " set smartindent
 set smarttab
@@ -148,3 +148,20 @@ function! HasPaste()
 endfunction
 
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                        file type specific settings:                        "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""
+"  LaTeX  "
+"""""""""""
+" enable automatic text wrapping, and enable english spell check
+autocmd BufRead,BufNewFile  *.tex setlocal tw=80 spell spelllang=en_us
+
+""""""""""""""""""""""""""""
+"  other markup languages  "
+""""""""""""""""""""""""""""
+" markdown
+autocmd BufRead,BufNewFile  *.md setlocal tw=80 spell spelllang=en_us
+" txt
+autocmd BufRead,BufNewFile  *.txt setlocal tw=80 spell spelllang=en_us

@@ -5,6 +5,9 @@
 # 1.) copy the vimrc
 cp ~/.vim/vimrc.cp ~/.vimrc
 
+# 1b.) copy the ctags config
+cp ~/.vim/ctags.cp ~/.ctags
+
 # 2.) install vundle
 ~/.vim/install_vundle.sh
 

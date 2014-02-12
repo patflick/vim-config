@@ -28,7 +28,8 @@ nnoremap <silent> <leader>n :NERDTreeToggle<CR>
 " use tagbar instead of taglist
 Bundle 'majutsushi/tagbar'
 nnoremap <silent> <leader>t :TagbarToggle<CR>
-
+" load all additional tag types
+source $HOME/.vim/tags.vim
 
 " Unite - for fast file/buffer searching & switching
 Bundle 'Shougo/unite.vim'
