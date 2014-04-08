@@ -83,21 +83,29 @@ set number
 set list listchars=tab:»_,trail:·,precedes:<,extends:>
 
 
+"user interface stuff
 
 " hightlight overlength
 set colorcolumn=81
 
-"user interface stuff
+" highlight the current word under the cursor
+autocmd CursorMoved * exe printf('match Title /\V\<%s\>/', escape(expand('<cword>'), '/\'))
+
+" show matching brackets
+set showmatch
+
 
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 
-" show matching brackets
-set showmatch
 
 " Don't reset cursor to start of line when moving around.
 set nostartofline
+
+
+" reload changed files
+autocmd WinEnter,BufWinEnter,CursorHold * :checktime
 
 """"""""""""""""""""""""""""""
 " => Status line
@@ -107,9 +115,9 @@ set laststatus=2
 " Format the status line
 set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Cursor:\ %l:%c
 
-" ==================
-" some key bindings
-" ==================
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                Key bindings                                "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Set new <leader>  key to comma
 " nope! use the default "\" leader key
@@ -117,11 +125,18 @@ set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Cursor:
 " let g:mapleader = ","
 
 " Fast saving
-nmap <leader>w :w!<cr>
+noremap <leader>w :w!<cr>
+" map saving to Ctrl+S
+noremap <C-s> :w<cr>
+inoremap <C-s> <ESC>:w<cr>
 
 " close buffer without closing the current window
-nmap <leader>c :bp<bar>sp<bar>bn<bar>bd<CR>
+noremap <leader>c :bp<bar>sp<bar>bn<bar>bd<CR>
 
+" double click mouse to highlight occurances
+"noremap <2-LeftMouse> *
+"inoremap <2-LeftMouse> <c-o>*
+nnoremap <silent> <2-LeftMouse> :let @/='\V\<'.escape(expand('<cword>'), '\').'\>'<cr>:set hls<cr>
 " <leader> + C and <leader> + V for copy paste to clipboard in gvim
 " :imap <leader>v <C-[>"+gPa
 " :nmap <leader>v "+gPa

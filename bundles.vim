@@ -64,7 +64,8 @@ let g:ycm_add_preview_to_completeopt=0
 " let g:ycm_confirm_extra_conf=0
 " set completeopt-=preview
 " use the YCM default clang flags config in case none is set
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
+" let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.vim/ycm_extra_conf.py'
 " function for checking if the current file is supported
 function! Ycm_supports_file()
     let cur_ft = &filetype
