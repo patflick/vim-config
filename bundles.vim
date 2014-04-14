@@ -97,7 +97,7 @@ Bundle 'rking/ag.vim'
 " MiniBufExplorer: the proper method to handle "tabs", because vim tabs
 "                  are not really tabs at all
 "  MiniBufExplorer is not needed with the vim-airline tabline extension
-" Bundle 'fholgado/minibufexpl.vim'
+Bundle 'fholgado/minibufexpl.vim'
 " configure MinBufExplorer:
 " fast buffer switching
 nnoremap  <C-l> :bn<CR>
@@ -117,7 +117,7 @@ nnoremap  <leader>0 :10b<CR>
 
 " powerline like bar (vim-airline)
 Bundle 'bling/vim-airline'
-let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
 " syntax

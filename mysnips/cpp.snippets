@@ -17,3 +17,11 @@ snippet guard "include guard"
 
 #endif // ${1/([A-Za-z0-9_]+).*/$1/}
 endsnippet
+
+snippet cout "std::cout"
+std::cout << "${1:Hello World!}" << std::endl;
+endsnippet
+
+snippet cerr "std::cerr"
+std::cerr << "${1:Ooops}" << std::endl;
+endsnippet
