@@ -25,8 +25,14 @@ set tabstop=4 softtabstop=4 shiftwidth=4
 " use spaces instead of tabs
 set expandtab
 
+
+
 " enable mouse: jump to the clicked-on position
 set mouse=a
+
+
+" use 256 colors
+set t_Co=256
 
 
 " Include all of the bundle configuration.
@@ -123,6 +129,11 @@ set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Cursor:
 " nope! use the default "\" leader key
 " let mapleader = ","
 " let g:mapleader = ","
+
+" key-bindings for idents (using Tab and Shift-Tab)
+inoremap <S-Tab> <C-o><<
+vnoremap <Tab> >gv
+vnoremap <S-Tab> <gv
 
 " Fast saving
 noremap <leader>w :w!<cr>

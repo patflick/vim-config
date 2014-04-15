@@ -39,6 +39,10 @@ nnoremap <silent> <leader>r :Unite file_rec<CR>
 nnoremap <silent> <leader>b :Unite buffer<CR>
 
 
+" detect ident
+Bundle 'tpope/vim-sleuth'
+
+
 " Undo Tree visualization
 Bundle 'sjl/gundo.vim'
 nnoremap <silent> <leader>u :GundoToggle<CR>
@@ -102,7 +106,6 @@ Bundle 'fholgado/minibufexpl.vim'
 " fast buffer switching
 nnoremap  <C-l> :bn<CR>
 nnoremap  <C-h> :bp<CR>
-nnoremap  <C-n> :enew<CR>
 nnoremap  <leader>1 :1b<CR>
 nnoremap  <leader>2 :2b<CR>
 nnoremap  <leader>3 :3b<CR>
@@ -131,8 +134,10 @@ Bundle 'tpope/vim-fugitive'
 " VIM Latex Suite
 Bundle 'jcf/vim-latex'
 
-" VIM snippets
+" VIM snippets (engine)
 Bundle 'SirVer/ultisnips'
+" actual snippets
+Bundle 'honza/vim-snippets'
 " can't use <TAB> because of YCM:
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
@@ -153,6 +158,7 @@ Bundle 'tomasr/molokai'
 
 " solarized theme
 Bundle 'altercation/vim-colors-solarized'
+" let g:solarized_termcolors=256
 set background=dark
 colorscheme solarized
 
