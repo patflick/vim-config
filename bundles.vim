@@ -96,6 +96,8 @@ nnoremap <leader>D :call Ycm_goto_decl()<CR>
 
 " Ag (replacement for Ack): for super fast recursive code searching
 Bundle 'rking/ag.vim'
+" execute :Ag on the current word under the cursor
+nnoremap <leader>s :Ag <C-R><C-W><CR>
 
 
 " MiniBufExplorer: the proper method to handle "tabs", because vim tabs
@@ -161,6 +163,9 @@ Bundle 'altercation/vim-colors-solarized'
 " let g:solarized_termcolors=256
 set background=dark
 colorscheme solarized
+
+Bundle 'chriskempson/base16-vim'
+"set background=dark
 
 "========================================
 "  No more editing from here

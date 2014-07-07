@@ -85,6 +85,9 @@ set scrolloff=3
 " and of course! line numbering!
 set number
 
+" no line wrapping by default
+set nowrap
+
 " highlighting spaces and tabs
 set list listchars=tab:»_,trail:·,precedes:<,extends:>
 
@@ -105,6 +108,8 @@ set showmatch
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 
+" match angular brackets in C++
+autocmd FileType cpp set matchpairs+=<:>
 
 " Don't reset cursor to start of line when moving around.
 set nostartofline
@@ -141,6 +146,12 @@ noremap <leader>w :w!<cr>
 noremap <C-s> :w<cr>
 inoremap <C-s> <ESC>:w<cr>
 
+" code refactoring (renaming)
+" For local replace
+nmap <leader>g gd[{V%:s/<C-R>///gcI<left><left><left><left>
+" For global replace
+nmap <leader>G :%s/\<<C-R>=expand('<cword>')<cr>\>//gcI<left><left><left><left>
+
 " close buffer without closing the current window
 noremap <leader>c :bp<bar>sp<bar>bn<bar>bd<CR>
 
@@ -153,6 +164,16 @@ nnoremap <silent> <2-LeftMouse> :let @/='\V\<'.escape(expand('<cword>'), '\').'\
 " :nmap <leader>v "+gPa
 " :vmap <leader>c "+y
 " :vmap <leader>x "+d
+
+
+" hastebin paste from visual mode, puts url into clipboard and PRIMARY and
+" opens a browser window of the hastebin
+"  REQUIRES: $ sudo gem install haste
+" (range based in visual mode)
+vnoremap <leader>h ::w !haste <bar> xsel -b && x-www-browser `xsel -b` && xsel -b <bar> xsel && echo `xsel` <CR>
+" (whole file in normal mode)
+nnoremap <leader>h :!cat % <bar> haste <bar> xsel -b && x-www-browser `xsel -b` && xsel -b <bar> xsel && echo `xsel` <CR>
+
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
