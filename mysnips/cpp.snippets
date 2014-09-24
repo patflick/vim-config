@@ -5,7 +5,7 @@ snippet doxfile "/** file doxygen */"
  * @author  Patrick Flick <patrick.flick@gmail.com>
  * @brief   ${3:descr}
  *
- * Copyright (c) TODO
+ * Copyright (c) 2014 Georgia Institute of Technology. All Rights Reserved.
  *
  * TODO add Licence
  */
@@ -16,6 +16,13 @@ snippet guard "include guard"
 #define ${1:SYMBOL}
 
 #endif // ${1/([A-Za-z0-9_]+).*/$1/}
+endsnippet
+
+snippet namesp "namespace"
+namespace ${1:SYMBOL}
+{
+${2:}
+} // namespace ${1/([A-Za-z0-9_]+).*/$1/}
 endsnippet
 
 snippet cout "std::cout"

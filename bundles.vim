@@ -125,8 +125,9 @@ Bundle 'bling/vim-airline'
 "let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
-" syntax
+" markdown + pandoc
 Bundle 'tpope/vim-markdown'
+" Bundle 'vim-pandoc/vim-pandoc'
 
 " git wrapper
 Bundle 'tpope/vim-fugitive'
