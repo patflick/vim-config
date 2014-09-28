@@ -46,6 +46,10 @@ syntax on
 " filetype according to name and!! content
 filetype plugin indent on
 
+" highlight current column and cursor
+set cursorline
+set cursorcolumn
+
 " auto read when file is changed
 set autoread
 
