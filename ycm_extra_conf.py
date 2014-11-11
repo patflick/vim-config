@@ -42,10 +42,7 @@ flags = [
 '-Wno-long-long',
 '-Wno-variadic-macros',
 '-fexceptions',
-'-DNDEBUG',
-# You 100% do NOT need -DUSE_CLANG_COMPLETER in your flags; only the YCM
-# source code needs it.
-'-DUSE_CLANG_COMPLETER',
+#'-DNDEBUG',
 # THIS IS IMPORTANT! Without a "-std=<something>" flag, clang won't know which
 # language to use when compiling headers. So it will guess. Badly. So C++
 # headers will be compiled as C headers. You don't want that so ALWAYS specify
@@ -59,42 +56,57 @@ flags = [
 # For a C project, you would set this to 'c' instead of 'c++'.
 '-x',
 'c++',
-'-isystem',
-'../BoostParts',
-'-isystem',
-# This path will only work on OS X, but extra paths that don't exist are not
-# harmful
-'/System/Library/Frameworks/Python.framework/Headers',
-'-isystem',
-'../llvm/include',
-'-isystem',
-'../llvm/tools/clang/include',
+# includes some local folders (only useful if this file is
+# actually in the folder of the project)
+#'-I',
+#'.',
+#'-I',
+#'..',
+#'-I',
+#'../..',
+#'-I',
+#'./include',
+#'-I',
+#'../include',
+#'-I',
+#'../../include',
+#'-I',
+#'./src',
+#'-I',
+#'../src',
+#'-I',
+#'../../src',
+# add additional include (for clang to find omp.h, even if it doesn't support it)
 '-I',
-'.',
-'-I',
-'./ClangCompleter',
-'-isystem',
-'./tests/gmock/gtest',
-'-isystem',
-'./tests/gmock/gtest/include',
-'-isystem',
-'./tests/gmock',
-'-isystem',
-'./tests/gmock/include',
-'-isystem',
-'/usr/include',
-'-isystem',
-'/usr/local/include',
-'-isystem',
-'/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/c++/v1',
-'-isystem',
-'/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include',
+'/home/patrick/.vim/ycm_include',
+# as workaround for libclang to find includes, output of:
+# echo | clang -v -E -x c++ -
+#'-isystem',
+#'/usr/include/c++/4.8',
+#'-isystem',
+#'/usr/include/c++/4.8/backward',
+#'-isystem',
+#'/usr/include/x86_64-linux-gnu/c++/4.8',
+#'-isystem',
+#'/usr/local/include',
+#'-isystem',
+#'usr/lib/clang/3.4/include',
+#'-isystem',
+#'/usr/lib/gcc/x86_64-linux-gnu/4.8/include',
+#'-isystem',
+#'/usr/include/x86_64-linux-gnu',
+#'-isystem',
+#'/usr/include',
 ]
 
 
 # Set this to the absolute path to the folder (NOT the file!) containing the
 # compile_commands.json file to use that instead of 'flags'. See here for
 # more details: http://clang.llvm.org/docs/JSONCompilationDatabase.html
+#
+# You can get CMake to generate this file for you by adding:
+#   set( CMAKE_EXPORT_COMPILE_COMMANDS 1 )
+# to your CMakeLists.txt file.
 #
 # Most projects will NOT need to set this to anything; you can just change the
 # 'flags' list of compilation flags. Notice that YCM itself uses that approach.
@@ -175,13 +187,6 @@ def FlagsForFile( filename, **kwargs ):
       compilation_info.compiler_flags_,
       compilation_info.compiler_working_dir_ )
 
-    # NOTE: This is just for YouCompleteMe; it's highly likely that your project
-    # does NOT need to remove the stdlib flag. DO NOT USE THIS IN YOUR
-    # ycm_extra_conf IF YOU'RE NOT 100% SURE YOU NEED IT.
-    try:
-      final_flags.remove( '-stdlib=libc++' )
-    except ValueError:
-      pass
   else:
     relative_to = DirectoryOfThisScript()
     final_flags = MakeRelativePathsInFlagsAbsolute( flags, relative_to )
