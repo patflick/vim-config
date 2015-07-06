@@ -63,7 +63,8 @@ let g:syntastic_cpp_checkers=['clang_check', 'cppcheck', 'gcc', 'cpplint']
 let g:syntastic_enable_signs = 1
 let g:syntastic_auto_loc_list = 2
 let g:syntastic_check_on_open = 1
-let g:syntastic_cpp_compiler_options = '-std=c++11'
+let g:syntastic_cpp_compiler_options = '-std=c++11 -I/usr/lib/openmpi/include'
+let g:syntastic_aggregate_errors = 1
 
 
 " automatic completion
@@ -98,6 +99,16 @@ endfunction
 " map the previous function to leader + D
 nnoremap <leader>D :call Ycm_goto_decl()<CR>
 
+
+Bundle 'rhysd/vim-clang-format'
+" use newest clang
+let g:clang_format#command = "clang-format-3.5"
+let g:clang_format#style_options = {
+            \ "AllowShortIfStatementsOnASingleLine" : "true",
+            \ "Standard" : "C++11"}
+" map to <Leader>q in C++ code
+autocmd FileType c,cpp,objc nnoremap <buffer><Leader>q :<C-u>ClangFormat<CR>
+autocmd FileType c,cpp,objc vnoremap <buffer><Leader>q :ClangFormat<CR>
 
 " Ag (replacement for Ack): for super fast recursive code searching
 Bundle 'rking/ag.vim'
@@ -170,8 +181,8 @@ Bundle 'altercation/vim-colors-solarized'
 set background=dark
 colorscheme solarized
 
-Bundle 'chriskempson/base16-vim'
-"set background=dark
+" Bundle 'chriskempson/base16-vim'
+"colorscheme base16-default
 
 "========================================
 "  No more editing from here

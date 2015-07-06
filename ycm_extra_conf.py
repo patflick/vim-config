@@ -38,10 +38,13 @@ flags = [
 '-Wall',
 '-Wextra',
 '-Werror',
+'-pedantic',
+#'-Wsystem-headers',
 #'-Wc++98-compat',
 '-Wno-long-long',
 '-Wno-variadic-macros',
 '-fexceptions',
+'--analyze',
 #'-DNDEBUG',
 # THIS IS IMPORTANT! Without a "-std=<something>" flag, clang won't know which
 # language to use when compiling headers. So it will guess. Badly. So C++
@@ -79,6 +82,9 @@ flags = [
 # add additional include (for clang to find omp.h, even if it doesn't support it)
 '-I',
 '/home/patrick/.vim/ycm_include',
+# for mpi
+'-I',
+'/usr/lib/openmpi/include',
 # as workaround for libclang to find includes, output of:
 # echo | clang -v -E -x c++ -
 #'-isystem',
