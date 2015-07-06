@@ -149,6 +149,7 @@ Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-fugitive'
 " git (and other VCS supported) gutter
 " Bundle 'mhinz/vim-signify'
+Bundle 'airblade/vim-gitgutter'
 
 " VIM Latex Suite
 Bundle 'jcf/vim-latex'
@@ -164,7 +165,19 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 " load custom snippets
 let g:UltiSnipsSnippetDirectories=["UltiSnips","mysnips"]
 
+"C++ (enhanced highlighting supporting C++11/14)
+Bundle 'octol/vim-cpp-enhanced-highlight'
+" Doxygen snippets
 Bundle 'vim-scripts/DoxygenToolkit.vim'
+
+" OpenCL
+Bundle 'petRUShka/vim-opencl'
+
+" JavaScript
+" syntax:
+Bundle "pangloss/vim-javascript"
+" node.js completion
+Bundle "ahayman/vim-nodejs-complete"
 
 " ---------------------
 "  Color Schemes
