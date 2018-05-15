@@ -8,7 +8,7 @@
 " Add this before you include the config to enable light mode.
 " let g:light_editor=1
 
-" Add better UTF-8 support.
+" Add better UTF-8 support
 scriptencoding utf-8
 set encoding=utf-8
 
